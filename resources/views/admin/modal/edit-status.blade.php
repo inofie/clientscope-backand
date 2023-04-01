@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Custom Metric Title</label>
-                        <input type="text" name="custom_metric_title" class="form-control" value="{{ $pin->custom_metric_title }}" placeholder="Custom Matric Title">
+                        <input type="text" name="custom_metric_title" class="form-control" value="{{ $pin->custom_metric_title }}" placeholder="Custom Metric Title">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Pin Color</label>
@@ -71,7 +71,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-save">Update Status</button>
+                <button type="submit" class="btn btn-save">Update</button>
             </div>
         </form>    
     </div>

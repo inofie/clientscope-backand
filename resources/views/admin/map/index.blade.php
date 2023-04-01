@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group new-modal new-select">
-                                    <!-- <label>Territory</label> -->
+                                    <label>Territory</label>
                                     <select name="territory[]" class=" select2 " multiple>
                                         <option value=""> Inspection Area </option>
                                         @if (count($getTerritories))
@@ -86,14 +86,14 @@
   @endif
                              </select>
                           </div> -->
-                                <div class="form-group new-modal new-input">
-                                    <!-- <label>Status Modified Date</label> -->
-                                    <input type="date" name="status_modified_date" class="form-control"
-                                        placeholder="Date">
-                                </div>
                                 <div class="form-group new-modal">
                                     <label>Updated At</label>
                                     <input type="date" name="updated_at" class="form-control" placeholder="Updated At">
+                                </div>
+                                <div class="form-group new-modal new-input">
+                                    <label>Status Modified Date</label>
+                                    <input type="date" name="status_modified_date" class="form-control"
+                                        placeholder="Date">
                                 </div>
                                 <div class="form_group">
                                     <label>Created At</label>

@@ -8,7 +8,7 @@ var ajaxDatatable = (element,source_url = '') => {
     table = $(element).DataTable({
         "processing": true,
         "serverSide": true,
-        "ordering": false,
+        "ordering": true,
         searching: false,
         "deferRender": true,
         "ajax":{

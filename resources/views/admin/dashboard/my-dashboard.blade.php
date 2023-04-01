@@ -210,19 +210,19 @@
         </div>
         <form id="territory_performance_filter" class="collapse mb-3">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2 ">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-2 ">
                     <div class="form_group">
                         <label>Date Range From</label>
                         <input type="date" name="date_from" class="form-control" />
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-2">
                     <div class="form_group">
                         <label>Date Range To</label>
                         <input type="date" name="date_to" class="form-control" />
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="form_group">
                         <label>Territory</label>
                         <select name="territory[]" multiple class="form-control select2">
@@ -235,7 +235,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="form_group">
                         <label>Chart Type</label>
                         <select name="chart_type[]" id="territory_performance_chart_type" class="form-control select2"
@@ -247,9 +247,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2" style="margin-top: 30px;">
-                    <div class="form_group">
-                        <button type="submit" class="btn btn-xs btn-info">Search</button>
+                <div class="col-12 col-md-12 col-lg-4 col-xl-2" style="margin-top: 30px;">
+                    <div class="form_group search-area">
+                        <button type="submit" class="search-btn">Search</button>
                     </div>
                 </div>
             </div>
@@ -283,19 +283,19 @@
         </div>
         <form id="team_performance_filter" class="collapse mb-3">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3 xol-xl-2 ">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-2 ">
                     <div class="form_group">
                         <label>Date Range From</label>
                         <input type="date" name="date_from" class="form-control" />
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2 ">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-2 ">
                     <div class="form_group">
                         <label>Date Range To</label>
                         <input type="date" name="date_to" class="form-control" />
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2 ">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="form_group">
                         <label>Territory</label>
                         <select name="territory[]" multiple class="form-control select2">
@@ -308,9 +308,13 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 col-xl-2 " style="margin-top: 30px;">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
                     <div class="form_group">
-                        <button type="submit" class="btn btn-xs btn-info">Search</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 col-xl-2 " style="margin-top: 30px;">
+                    <div class="form_group search-area">
+                        <button type="submit" class="search-btn">Search</button>
                     </div>
                 </div>
             </div>

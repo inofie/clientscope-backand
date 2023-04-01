@@ -40,6 +40,13 @@
              <p>Messages</p>
             </a>
          </li>
+         <li class="nav-item text-center pb-3 gray  non-active {{ Request::url() == route('admin.leader-board')  ? 'active' : '' }}">
+            <a data-name="{{ route('admin.leader-board') }}" class="nav-link gray" href="{{ route('admin.leader-board') }}">
+               <img class="non-active-icon static-img" src="{{ asset('assets/images/first_place-active.png')}}" alt="">
+               <img class="active-icon active-img" src="{{ asset('assets/images/first_place.png')}}" alt="">
+             <p>Leaderboard</p>
+            </a>
+         </li>
          <li class="nav-item text-center pb-3 gray slide-toggle non-active">
             <a class="nav-link gray">
             <img class="non-active-icon static-img" src="{{ asset('assets/images/setting.png')}}" alt="">
@@ -110,7 +117,7 @@
                                  <li><a data-name="{{ route('admin.account-details') }}" href="{{ route('admin.account-details') }}">Account Details</a></li>
                               @endif
    {{--                           <li><a href="#">Notification</a></li>--}}
-                              <li><a data-name="{{ route('admin.leader-board') }}" href="{{ route('admin.leader-board') }}">Leader board</a></li>
+                              <!-- <li><a data-name="{{ route('admin.leader-board') }}" href="{{ route('admin.leader-board') }}">Leader board</a></li> -->
                            </ul>
                         </div>
                      </div>

@@ -2300,7 +2300,14 @@ ul>li:not(:last-child) {
   color: #fff;
   font-weight: 100;
 }
+.add-status .modal-header {
+  background-color: #f58719;
+  color: #fff;
+  padding: 30px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 
+}
 .edit-profile-img input::placeholder,
 .add-modal input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */

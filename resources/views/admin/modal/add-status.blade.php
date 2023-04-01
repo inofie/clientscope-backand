@@ -1,8 +1,8 @@
 <div class="modal fade new-modal" id="addStatus" tabindex="-1" role="dialog" aria-labelledby="addStatus" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg add-status" role="document">
        <div class="modal-content">
           <div class="modal-header">
-             <h5 class="modal-title" id="addStatusTitle">Add Status</h5>
+             <h5 class="modal-title font-24" id="addStatusTitle">Add Status</h5>
              <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
@@ -70,8 +70,16 @@
                 <hr>
              </div>
              <div class="modal-footer"> 
-                <button type="button" class="btn btn-close btn-theme2" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-save btn-theme">Save</button>
+                <button type="button" class="btn btn-close btn-theme2" data-dismiss="modal">
+                <ul class="d-flex align-items-center justify-content-center">
+               <li>-</li>
+               <li>Cancel</li>
+               </ul></button>
+                <button type="submit" class="btn btn-save btn-theme">
+                <ul class="d-flex align-items-center justify-content-center">
+               <li>+</li>
+               <li>Confirm</li>
+               </ul></button>
              </div>
           </form>
        </div>
