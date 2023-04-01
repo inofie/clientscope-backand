@@ -37,7 +37,7 @@ class WebUserPermission
                 if( $module == 'import_pin' ){
                     if( $user->user_meta['is_administrator'] == 0 && $user->user_meta['can_import_pin'] == 0 ){
                         return redirect()->route('admin.dashboard')
-                            ->with('error',");
+                            ->with('error');
                     }
                 }
 
