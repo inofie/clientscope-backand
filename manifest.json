@@ -1,0 +1,12 @@
+{
+  "name": "Client Scope",
+  "short_name": "Client Scope",
+  "icons": [{
+        "src": "https://retrocubedev.com/dev/client_scope/public/assets/images/logo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }],
+  "start_url": "https://retrocubedev.com/dev/client_scope/public/admin/map",
+  "display": "standalone",
+  "gcm_sender_id": "222174039529"
+}
