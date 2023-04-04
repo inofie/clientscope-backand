@@ -51,11 +51,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="font-600 color-0087 text-center font-20">Choose some filters</p>
-                                <!-- <p>Choose some filters <span style="cursor:pointer;" class="text-danger pull-right clear_filter">Clear filter</span></p> -->
+                                <p>Choose some filters <span style="cursor:pointer;" class="text-danger pull-right clear_filter">Clear filter</span></p>
                                 <div class="input-group mb-3 territories-input ">
                                     <input type="text" name="address" id="googleautocomplete"
                                         onfocus="GoogleAutoComplete()" class="form-control"
-                                        placeholder="Search Projects">
+                                        placeholder="Search">
                                     <input type="hidden" name="search_latitude" id="search_latitude" value="37.09024">
                                     <input type="hidden" name="search_longitude" id="search_longitude"
                                         value="-95.712891">
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group new-modal new-select">
                                     <label>Territory</label>
-                                    <select name="territory[]" class=" select2 " multiple>
+                                    <select data-placeholder="Territory" name="territory[]" class=" select2 " multiple>
                                         <option value=""> Inspection Area </option>
                                         @if (count($getTerritories))
                                         @foreach ($getTerritories as $getTerritory)
@@ -76,27 +76,27 @@
                                         @endif
                                     </select>
                                 </div>
-                                <!-- <div class="form-group">
-                             <label>Lead Owner</label>
-                             <select data-placeholder="Lead Owner" name="assignee_user_id[]" multiple class="select2 form-control form-control2">
-                                @if (count($companyUsers))
-  @foreach ($companyUsers as $companyUser)
-  <option value="{{ $companyUser->id }}">{{ $companyUser->name }}</option>
-  @endforeach
-  @endif
+                                <div class="form-group">
+                             <label>Assigned To</label>
+                             <select data-placeholder="Assigned To" name="assignee_user_id[]" multiple class="select2 form-control form-control2">
+                            @if (count($companyUsers))
+                            @foreach ($companyUsers as $companyUser)
+                            <option value="{{ $companyUser->id }}">{{ $companyUser->name }}</option>
+                            @endforeach
+                            @endif
                              </select>
-                          </div> -->
+                          </div>
                                 <div class="form-group new-modal">
-                                    <label>Updated At</label>
+                                    <label>Day Updated</label>
                                     <input type="date" name="updated_at" class="form-control" placeholder="Updated At">
                                 </div>
                                 <div class="form-group new-modal new-input">
-                                    <label>Status Modified Date</label>
+                                    <label>Day Status Modified</label>
                                     <input type="date" name="status_modified_date" class="form-control"
                                         placeholder="Date">
                                 </div>
                                 <div class="form_group">
-                                    <label>Created At</label>
+                                    <label>Day Created</label>
                                     <select name="date_filter" class="form-control date_filter form-control2">
                                         <option value="">Select Date Range</option>
                                         <option value="today">Today</option>

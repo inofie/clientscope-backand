@@ -42,7 +42,7 @@
                               <option value="">-- Select Tracking Date -- </option>
                            </select>
                            
-                           <input type="date" class="date-input" placeholder="Select Tracking Date">
+                           <!-- <input type="date" class="date-input" placeholder="Select Tracking Date"> -->
                         </div>
                      </div>
                   </div>
