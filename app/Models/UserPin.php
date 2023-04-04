@@ -88,7 +88,7 @@ class UserPin extends Model
         $query->with(['pinStatus','pinStatusHistory','creatorUser','assigneeUser','appointment.assigneeUser','territory'])
                 ->select('user_pin.*')
                 ->selectRaw("creator.name AS creator_name, assignee.name AS assignee_name, ups.title AS status_title, 
-                updated_user.name AS updated_by,t.title AS territory_title, a.title AS appointment_title, a.notes AS appointment_notes, count('upuh.id') AS num_of_status_changes, DATE(upuh.created_at) AS status_modified_date")
+                updated_user.name AS updated_by_user,t.title AS territory_title, a.title AS appointment_title, a.notes AS appointment_notes, count('upuh.id') AS num_of_status_changes, DATE(upuh.created_at) AS status_modified_date")
                 ->join('user_company_pin_mapping AS ucpm','ucpm.user_pin_id','=','user_pin.id')
                 ->join('users AS creator','creator.id','=','user_pin.creator_user_id')
                 ->join('users AS assignee','assignee.id','=','user_pin.assignee_user_id')

@@ -178,8 +178,11 @@ class UserPinController extends Controller
 		$params['status_modified_date'] = !empty($filter_data['status_modified_date']) ? $filter_data['status_modified_date'] : NULL;
 
         if( !empty($params['order'][0]) ){
+            // $sort_column = [
+            //     'house_address','creator_name','assignee_name','status_title','territory_title','updated_by','house_number','unit','state','city','zipcode','latitude','longitude','name','phone','email','created_at','updated_at','appointment_title','notes','status_modified_date','num_of_status_changes'
+            // ];
             $sort_column = [
-                'house_address','creator_name','assignee_name','status_title','territory_title','updated_by','house_number','unit','state','city','zipcode','latitude','longitude','name','phone','email','created_at','updated_at','appointment_title','notes','status_modified_date','num_of_status_changes'
+                'house_address','status_title','creator_name','created_at','updated_by_user','updated_at','assignee_name'
             ];
             $params['sort_column'] = $sort_column[$params['order'][0]['column']];
             $params['sort_order']  = $params['order'][0]['dir'];
@@ -188,6 +191,7 @@ class UserPinController extends Controller
         $records['data'] = [];
         $data    = [];
         $responses = $this->internalCall('/api/user-pin', 'GET', $params, get_user()->token);
+        // dd($responses);
         // set data grid output
         if(count($responses->data))
         {
@@ -197,8 +201,8 @@ class UserPinController extends Controller
                     $record->pin_status ? '<span style="color:'.$record->pin_status->color.'">'. $record->pin_status->title .'</span>' : '-',
                     $record->creator_user ? $record->creator_user->name : '-',
                     $record->created_at,
-                    !empty($record->updated_by) ? $record->updated_by : '--',
-                    !empty($record->updated_by) ? $record->updated_at : '--',
+                    !empty($record->updated_by_user) ? $record->updated_by_user : '--',
+                    !empty($record->updated_at) ? $record->updated_at : '--',
                     $record->assignee_user ? $record->assignee_user->name : '-',
 
                     // !empty($record->territory->title) ? $record->territory->title : '--',
