@@ -81,7 +81,13 @@ class MapController extends Controller
         }
         return $responses;
     }
-
+    public function getTerritoryName(Request $request)
+    {
+        $territories = \DB::table('territory AS t')
+                            ->where('t.title',$request->territories_search)
+                            ->get();
+        return $territories;
+    }
     public function getPins(Request $request)
     {
         $data       = [];

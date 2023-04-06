@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group new-modal new-select">
                                     <label>Territory</label>
-                                    <select data-placeholder="Territory" name="territory[]" class=" select2 " multiple>
+                                    <select data-placeholder="Territory" id="territory" name="territory[]" class=" select2 " multiple>
                                         <option value=""> Inspection Area </option>
                                         @if (count($getTerritories))
                                         @foreach ($getTerritories as $getTerritory)
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="form-group">
                              <label>Assigned To</label>
-                             <select data-placeholder="Assigned To" name="assignee_user_id[]" multiple class="select2 form-control form-control2">
+                             <select data-placeholder="Assigned To" id="assignedto" name="assignee_user_id[]" multiple class="select2 form-control form-control2">
                             @if (count($companyUsers))
                             @foreach ($companyUsers as $companyUser)
                             <option value="{{ $companyUser->id }}">{{ $companyUser->name }}</option>
@@ -284,7 +284,7 @@
 
                     <div class="territory_list">
                         <div class="input-group mb-2 territories-input">
-                            <input type="text" name="territories_search" id="aerritories_search" class=""
+                            <input type="text" name="territories_search" id="territories_search" class=""
                                 placeholder="Search Territory Name">
                             <div class="search-icon">
 
@@ -311,7 +311,7 @@
                         <div class="d-flex flex-row justify-content-between mb-3 ft-14">
                             <div>
                                 <div class="form-check">
-                                    <input type="checkbox" checked name="territory_id[]" value="{{ $territory->id }}"
+                                    <input type="checkbox" checked id="territory_id" name="territory_id[]" value="{{ $territory->id }}"
                                         class="select_territory form-check-input">
                                     <label class="form-check-label color-c840e9">{{ $territory->title }}</label>
                                 </div>

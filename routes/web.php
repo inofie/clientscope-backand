@@ -79,6 +79,7 @@ Route::middleware(['logging:web'])->group(function () {
             Route::get('map/get-pins','Admin\MapController@getPins')->name('admin.map.getPins');
             Route::post('territory/save','Admin\MapController@saveTerritory')->name('admin.territory.save');
             Route::get('territory/get','Admin\MapController@getTerritory')->name('admin.territory.get');
+            Route::get('territoryname/get','Admin\MapController@getTerritoryName')->name('admin.territoryname.get');
             Route::post('territory/update','Admin\MapController@updateTerritory')->name('admin.territory.update');
             Route::post('territory/delete','Admin\MapController@territoryDelete')->name('admin.territory.delete');
 

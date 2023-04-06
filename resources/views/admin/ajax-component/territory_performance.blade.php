@@ -1,3 +1,20 @@
+<style>
+    .requires-no-scroll{
+    position:absolute;
+    top: 0.5px;  
+}
+/* .tableFixHead
+{
+    overflow: auto;
+    height: 100px;
+}
+.tableFixHead thead th
+{
+    position: sticky;
+    top: 0; z-index: 1;
+    background-color:white;
+} */
+</style>
 @if( count($territoryData) )
     @foreach( $territoryData as $territory_name => $results)
         @php
@@ -7,8 +24,10 @@
         <div class="row territory_container">
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_kpi_group_datatable">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
-                    <table class="table">
+                </div>
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['universe'][0] }}</th>
@@ -41,7 +60,9 @@
             @endphp
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_metric_data_table">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
+                </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -96,7 +117,9 @@
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_kpi_group_bar_chart">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
+                </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -135,7 +158,9 @@
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 " id="territory_metric_bar_chart">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>

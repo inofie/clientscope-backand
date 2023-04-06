@@ -1,3 +1,10 @@
+
+<style>
+    .requires-no-scroll{
+    position:absolute;
+    top: 0.5px;  
+}
+</style>
 @if( count($teamPerformanceData) )
     @foreach( $teamPerformanceData as $team_name => $results)
         @php
@@ -7,7 +14,9 @@
         <div class="row territory_container">
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_kpi_group_datatable">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -41,7 +50,9 @@
             @endphp
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_metric_data_table">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -96,7 +107,9 @@
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_kpi_group_bar_chart">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
+                </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -136,7 +149,9 @@
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 " id="territory_metric_bar_chart">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
+                    </div>
                     <table class="table">
                         <thead>
                         <tr>

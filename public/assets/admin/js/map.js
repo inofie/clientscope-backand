@@ -30,7 +30,18 @@ function getLocation() {
         alert("Geolocation is not supported by this browser.");
     }
 }
-
+//search function for territory name
+// $('#territories_search').change(function(){
+//     let territories_search = $(this).val();
+//     ajax_request( base_url + '/admin/territoryname/get','GET',{territories_search:territories_search})
+//       .then( function(territories){
+//           if( territories.length > 0 ){
+//             $('#territory_id').html(territories);
+//           } else {
+//             alert('No territory found');
+//           }
+//       })
+// })
 //date filter
 $('.date_filter').change(function (e) {
     e.preventDefault();
@@ -45,6 +56,8 @@ $('.date_filter').change(function (e) {
 //clear map filter
 $('.clear_filter').click(function () {
     $('#custom_date').hide();
+    $('#assignedto').val('100').trigger('change');
+    $('#territory').val('100').trigger('change');
     $('.date_filter').parent().show();
     $('#search_pin_form').trigger("reset");
 })

@@ -8,6 +8,15 @@
 .select2-container--default.select2-container--focus .select2-selection--multiple {
     background: #fff;
 }
+.requires-no-scroll{
+    position:absolute;
+    top: 1px;  
+}
+.requires-no-scroll-1{
+    position:absolute;
+    top: 3px;  
+}
+
 </style>
 <div class="wrapper d-flex align-items-stretch">
     @include('admin.include.sidebar')
@@ -51,25 +60,33 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
-                    <p class="ft-14 font-weight-bold">Yearly Target</p>
+                <div class="requires-no-scroll-1">
+                    <p class="text-uppercase ft-14 font-weight-bold">Yearly Target</p>
+                </div>
                     <div id="kpi_annual_target"></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">Monthly Target</p>
+                    </div>
                     <div id="kpi_monthly_target"></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">Weekly Target</p>
+                    </div>
                     <div id="kpi_weekly_target"></div>
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">sales leaderboard</p>
+                    </div>
                     <div id="leader_board"></div>
                 </div>
             </div>
@@ -171,13 +188,17 @@
         <div id="performance_section" class="row collapse show">
             <div class="col-md-12 col-xl-6 mb-3" id="kpi_group_datatable_section">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="font-18 font-weight-bold">{{ get_user()->name }}</p>
+                </div>
                     <div id="kpi_group_performance"></div>
                 </div>
             </div>
             <div class="col-md-12 col-xl-6 mb-3" id="metric_data_table_section">
                 <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="requires-no-scroll">
                     <p class="font-18 font-weight-bold">{{ get_user()->name }}</p>
+                </div>
                     <div id="metric_performance"></div>
                 </div>
             </div>
