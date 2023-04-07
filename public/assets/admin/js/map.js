@@ -643,7 +643,7 @@ function loadPins() {
                                    <h5 style="margin-left: 5px;" class="font-weight-bold">${res[i].name == null ? '' : res[i].name}</h5>  
                                    <div class="d-flex justify-content-between">
                                       <h5 class="font-weight-bold" style="color:${res[i].pin_status.color};"> 
-                                        <img src="${res[i].pin_status.image_url}" style="width:35px; height:35px; object-fit: contain;">
+                                        <img src="${res[i].pin_status.image_url}" style="width:20px; height:20px; object-fit: contain;">
                                         ${res[i].pin_status.title} 
                                       </h5>
                                       <div><button onclick="pinDetailPopup(${res[i].id})" class="btn bg-orange">View</button></div>
@@ -680,7 +680,7 @@ function loadPins() {
                                <h5 style="margin-left: 5px;" class="font-weight-bold">${res[i].name == null ? '' : res[i].name}</h5>   
                                <div class="d-flex justify-content-between">
                                   <h5 class="font-weight-bold" style="color:${res[i].pin_status.color};"> 
-                                    <img src="${res[i].pin_status.image_url}" style="width:35px; height:35px; object-fit: contain;">
+                                    <img src="${res[i].pin_status.image_url}" style="width:20px; height:20px; object-fit: contain;">
                                     ${res[i].pin_status.title} 
                                   </h5>
                                   <div><button onclick="pinDetailPopup(${res[i].id})" class="btn bg-orange">View</button></div>

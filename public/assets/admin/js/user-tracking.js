@@ -74,7 +74,7 @@ $('#search_pin_form').submit( function(e){
               var username   = response[i].user.name;
 							var created_at = moment(response[i].created_at).format('MMMM, DD YYYY') + ' at ' + moment(response[i].created_at).format('h:mm A');
 							infowindow.setContent(`
-										  <div style="width:200px;">
+										  <div style="width:100px;">
                         <p><b>${username}</b></p>
                         <p>${created_at}</p>
                       </div>
