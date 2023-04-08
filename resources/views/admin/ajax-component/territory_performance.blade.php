@@ -1,19 +1,26 @@
 <style>
     .requires-no-scroll{
-    position:absolute;
-    top: 0.5px;  
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    background-color:white;
 }
-/* .tableFixHead
+.tableFixHead
 {
     overflow: auto;
     height: 100px;
+    margin-top:40px;
 }
 .tableFixHead thead th
 {
     position: sticky;
     top: 0; z-index: 1;
     background-color:white;
-} */
+}
+.tableFixHead tbody
+{
+    margin-top:40px;
+}
 </style>
 @if( count($territoryData) )
     @foreach( $territoryData as $territory_name => $results)
@@ -63,7 +70,7 @@
                 <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
                 </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['universe'][0] }}</th>
@@ -120,7 +127,7 @@
                 <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
                 </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['universe'][0] }}</th>
@@ -161,7 +168,7 @@
                 <div class="requires-no-scroll">
                     <p class="font-semi-bold font-18 color-black">{{ $territory_name }}</p>
                     </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['universe'][0] }}</th>

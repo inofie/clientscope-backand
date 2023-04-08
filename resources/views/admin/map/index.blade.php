@@ -13,6 +13,12 @@
     border: 2px solid black;
     white-space: nowrap;
 }
+input[type="date"]:after {
+    top: -24px;
+    position: inherit;
+    float: right;
+    display: inline-block;
+}
 </style>
 <div class="wrapper d-flex align-items-stretch">
     @include('admin.include.sidebar')
@@ -65,9 +71,9 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="form-group new-modal new-select">
+                                <div class="form-group new-select2">
                                     <label>Territory</label>
-                                    <select data-placeholder="Territory" id="territory" name="territory[]" class=" select2 " multiple>
+                                    <select data-placeholder="Territory" id="territory" name="territory[]" class="form-control select2" multiple>
                                         <option value=""> Inspection Area </option>
                                         @if (count($getTerritories))
                                         @foreach ($getTerritories as $getTerritory)
@@ -76,9 +82,9 @@
                                         @endif
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group new-select2">
                              <label>Assigned To</label>
-                             <select data-placeholder="Assigned To" id="assignedto" name="assignee_user_id[]" multiple class="select2 form-control form-control2">
+                             <select data-placeholder="Assigned To" id="assignedto" name="assignee_user_id[]" multiple class="form-control select2">
                             @if (count($companyUsers))
                             @foreach ($companyUsers as $companyUser)
                             <option value="{{ $companyUser->id }}">{{ $companyUser->name }}</option>
@@ -87,16 +93,16 @@
                              </select>
                           </div>
                                 <div class="form-group new-modal">
-                                    <label>Day Updated</label>
+                                    <label>Date Updated</label>
                                     <input type="date" name="updated_at" class="form-control" placeholder="Updated At">
                                 </div>
                                 <div class="form-group new-modal new-input">
-                                    <label>Day Status Modified</label>
+                                    <label>Date Status Modified</label>
                                     <input type="date" name="status_modified_date" class="form-control"
                                         placeholder="Date">
                                 </div>
                                 <div class="form_group">
-                                    <label>Day Created</label>
+                                    <label>Date Created</label>
                                     <select name="date_filter" class="form-control date_filter form-control2">
                                         <option value="">Select Date Range</option>
                                         <option value="today">Today</option>
@@ -298,7 +304,7 @@
                             </h5>
                             <div class="add_territory"><span class="fa fa-plus color-3f3d56"></span></div>
                         </div>
-
+                        
                         <div class="mb-3">
                             <div class="form-check">
                                 <input type="checkbox" checked name="select_all_territory" value="1"

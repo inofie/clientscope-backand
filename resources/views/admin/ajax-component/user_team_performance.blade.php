@@ -1,8 +1,23 @@
-
 <style>
     .requires-no-scroll{
     position:absolute;
     top: 0.5px;  
+}
+.tableFixHead
+{
+    overflow: auto;
+    height: 100px;
+    margin-top:40px;
+}
+.tableFixHead thead th
+{
+    position: sticky;
+    top: 0; z-index: 1;
+    background-color:white;
+}
+.tableFixHead tbody
+{
+    margin-top:40px;
 }
 </style>
 @if( count($teamPerformanceData) )
@@ -17,7 +32,7 @@
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                     </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['kpi_group_chart'][0]->universe }}</th>
@@ -53,7 +68,7 @@
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                     </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['kpi_group_chart'][0]->universe }}</th>
@@ -110,7 +125,7 @@
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                 </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['kpi_group_chart'][0]->universe }}</th>
@@ -152,7 +167,7 @@
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                     </div>
-                    <table class="table">
+                    <table class="table tableFixHead">
                         <thead>
                         <tr>
                             <th scope="col">Universe {{ $results['kpi_group_chart'][0]->universe }}</th>

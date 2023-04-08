@@ -485,7 +485,8 @@ $(document).on('click', '.delete_pin', function (e) {
     } else {
         return false;
     }
-})
+});
+
 //auto complete
 function GoogleAutoComplete() {
     googleAutoComplete = new google.maps.places.Autocomplete(document.getElementById('googleautocomplete'));
@@ -550,6 +551,19 @@ function initMap() {
     loadTerritory();
 }
 
+$(document).on('click', '.clear-filter', function (e) {
+    e.preventDefault()
+    var element = $(this);
+    var msg = confirm('Are you sure you want to continue?');
+    if (msg) {
+        markerClusterer.clearMarkers();
+        $('.select_territory').removeAttr('checked');
+        $('.select_all_territory').removeAttr('checked');
+    } else {
+        return false;
+    }
+});
+
 function clusteringMarker() {
     if (markerClusterer) {
         markerClusterer.clearMarkers();
@@ -570,6 +584,11 @@ function getPins(cb) {
         },
         success: function (data) {
             cb(data)
+            // if(data && data.code == 200 && data.data && data.data[0].latitude && data.data[0].longitude) {
+            //     var LatLng = { lat: 23, lng: 71 }
+            //     map.setCenter(LatLng);
+            //     map.setZoom(13);
+            // }
         }
     });
 }
@@ -623,6 +642,9 @@ function loadPins() {
                                 fontSize: '18px'
                             }
                         });
+                        var LatLng = new google.maps.LatLng(res[i].latitude, res[i].longitude);
+                        map.setCenter(LatLng);
+                        map.setZoom(13);
 
                         check_user_pin_arr.push(res[i].id)
                         markersArr.push(marker);
@@ -631,6 +653,7 @@ function loadPins() {
                             if (res[i].id == user_pin.id) {
                                 var appointment_date;
                                 var appointment_time;
+                                var appointment_name;
                                 if (res[i].appointment == null || res[i].appointment == '' || res[i].appointment.length == 0) {
                                     appointment_date = '';
                                     appointment_time = '';
@@ -638,23 +661,30 @@ function loadPins() {
                                     appointment_date = moment(res[i].appointment.start_datetime).format('MM-DD-YYYY');
                                     appointment_time = res[i].appointment.start_datetime.split(' ')[1]
                                 }
+                                if (res[i].name.length > 8){
+                                    appointment_name = res[i].name.substr(0, 4) + '..'; 
+                                }
+                                else{
+                                    appointment_name = res[i].name;
+                                }
                                 infowindow.setContent(`
                                 <div class="info-box">
-                                   <h5 style="margin-left: 5px;" class="font-weight-bold">${res[i].name == null ? '' : res[i].name}</h5>  
+                                   <h5 style="margin-left: 5px;" class="font-weight-bold">${res[i].name == null ? '' : appointment_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   <button style="margin-right: 5px;" onclick="pinDetailPopup(${res[i].id})" class="btn bg-orange">View</button></h5>  
                                    <div class="d-flex justify-content-between">
                                       <h5 class="font-weight-bold" style="color:${res[i].pin_status.color};"> 
                                         <img src="${res[i].pin_status.image_url}" style="width:20px; height:20px; object-fit: contain;">
                                         ${res[i].pin_status.title} 
                                       </h5>
-                                      <div><button onclick="pinDetailPopup(${res[i].id})" class="btn bg-orange">View</button></div>
+                                      <div></div>
                                    </div>
                                    <div class="d-flex justify-content-between pt-4">
-                                      <div style="width: 70%;">
+                                      <div style="width: 60%;">
                                          <div class="ft-13">${res[i].house_address}</div>
                                       </div>
-                                      <div>
-                                         <div class="ft-13">${appointment_date}</div>
-                                         <div class="ft-13">${appointment_time}</div>
+                                      <div style="width: 80%;">
+                                         <div class="ft-13">${appointment_date} ${appointment_time}</div>
+                                         
                                       </div>
                                    </div>
                                 </div>
@@ -668,6 +698,7 @@ function loadPins() {
                             return function () {
                                 var appointment_date;
                                 var appointment_time;
+                                var appointment_name;
                                 if (res[i].appointment == null || res[i].appointment == '' || res[i].appointment.length == 0) {
                                     appointment_date = '';
                                     appointment_time = '';
@@ -675,23 +706,32 @@ function loadPins() {
                                     appointment_date = moment(res[i].appointment.start_datetime).format('MM-DD-YYYY');
                                     appointment_time = res[i].appointment.start_datetime.split(' ')[1]
                                 }
+                                
+                                if (res[i].name.length > 8){
+                                    appointment_name = res[i].name.substr(0, 4) + '..'; 
+                                }
+                                else{
+                                    appointment_name = res[i].name;
+                                }
                                 infowindow.setContent(`
+                                
                             <div class="info-box">
-                               <h5 style="margin-left: 5px;" class="font-weight-bold">${res[i].name == null ? '' : res[i].name}</h5>   
+                               <h5 class="font-weight-bold">${res[i].name == null ? '' : appointment_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               <button style="margin-right: 5px;" onclick="pinDetailPopup(${res[i].id})" class="btn bg-orange">View</button></h5>   
                                <div class="d-flex justify-content-between">
                                   <h5 class="font-weight-bold" style="color:${res[i].pin_status.color};"> 
                                     <img src="${res[i].pin_status.image_url}" style="width:20px; height:20px; object-fit: contain;">
                                     ${res[i].pin_status.title} 
                                   </h5>
-                                  <div><button onclick="pinDetailPopup(${res[i].id})" class="btn bg-orange">View</button></div>
+                                  <div></div>
                                </div>
-                               <div class="d-flex justify-content-between pt-4">
-                                  <div style="width: 70%;">
+                               <div class="d-flex justify-content-between">
+                                  <div style="width: 60%;">
                                      <div class="ft-13">${res[i].house_address}</div>
                                   </div>
-                                  <div>
-                                     <div class="ft-13">${appointment_date}</div>
-                                     <div class="ft-13">${appointment_time}</div>
+                                  <div style="width: 80%;">
+                                     <div class="ft-13">${appointment_date} ${appointment_time}</div>
+                                     
                                   </div>
                                </div>
                             </div>

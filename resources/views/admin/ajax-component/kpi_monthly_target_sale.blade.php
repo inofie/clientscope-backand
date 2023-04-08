@@ -1,4 +1,22 @@
-<table class="table">
+<style>
+.tableFixHead
+{
+    overflow: auto;
+    height: 100px;
+    margin-top:40px;
+}
+.tableFixHead thead th
+{
+    position: sticky;
+    top: 0; z-index: 1;
+    background-color:white;
+}
+.tableFixHead tbody
+{
+    margin-top:40px;
+}
+</style>
+<table class="table tableFixHead">
     <thead>
     <tr>
         <th scope="col">KPI Group</th>
