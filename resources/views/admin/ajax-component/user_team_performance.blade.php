@@ -6,8 +6,9 @@
 .tableFixHead
 {
     overflow: auto;
-    height: 100px;
-    margin-top:40px;
+    height: 300px !important;
+    margin-top: 40px;
+    display: inherit;
 }
 .tableFixHead thead th
 {
@@ -28,7 +29,7 @@
         @endphp
         <div class="row territory_container">
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_kpi_group_datatable">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                     </div>
@@ -64,7 +65,7 @@
                 extract($kpi_groups);
             @endphp
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_metric_data_table">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                     </div>
@@ -121,7 +122,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3" id="territory_kpi_group_bar_chart">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                 </div>
@@ -163,7 +164,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 " id="territory_metric_bar_chart">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll">
                     <p class="text-uppercase ft-14">{{ $team_name }}</p>
                     </div>

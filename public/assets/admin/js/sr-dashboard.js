@@ -86,7 +86,7 @@ function getKnockTimeChart()
         var id1 = document.getElementById("myChart");
         var chart_label = res != null ? res.hours : [];
         var chart_data  = res !=null ? res.total : [];
-        MyChart(id1,"#94C5FC", 'Best Knock Time', chart_label, chart_data);
+        MyChart(id1,"#FF0000", 'Best Knock Time', chart_label, chart_data);
     })
 }
 
@@ -122,6 +122,7 @@ function MyChart(id, color, chart_title, label, data)
         },
         // Configuration options
         options: {
+            maintainAspectRatio: false,
             layout: {
                 padding: 20,
             },
@@ -136,8 +137,11 @@ function MyChart(id, color, chart_title, label, data)
             scales: {
               yAxes: [{
                 ticks: {
-                  stepSize: 1,
-                  fontSize: 16
+                //   stepSize: 1,
+                  fontSize: 16,
+                  callback: function(value, index, ticks) {
+                      return value + '%';
+                  }
                 }
               }],
               xAxes: [{

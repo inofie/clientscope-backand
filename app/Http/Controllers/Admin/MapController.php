@@ -76,17 +76,27 @@ class MapController extends Controller
         $user_token = get_user()->token;
         $params = $request->all();
         $responses = $this->internalCall('api/territory','GET',$params,$user_token);
+       // dd($responses);
         if( $request->ajax() ){
             return response()->json($responses);
         }
         return $responses;
     }
     public function getTerritoryName(Request $request)
-    {
+    {   
+        $user = get_user();
+        if( $user->UserRole->slug == 'company' ){
+            $user_company_id = $user->UserRole->user_id;
+        }else{
+            $user_company_id = $user->userCompany->id;
+        }
         $territories = \DB::table('territory AS t')
-                            ->where('t.title',$request->territories_search)
-                            ->get();
-        return $territories;
+                            ->where('t.title',$request->territories_search)->get();
+        $totalcount = $territories->count();
+        $this->_data['companyUsers']    = $this->getCompanyUsers($user_company_id);
+        $html = view('admin.map.territorydata',$this->_data,compact('territories','totalcount'))->render();
+     
+        return $html;
     }
     public function getPins(Request $request)
     {

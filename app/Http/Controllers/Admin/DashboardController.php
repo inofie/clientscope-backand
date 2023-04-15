@@ -71,9 +71,15 @@ class DashboardController extends Controller
         $data    = [];
         $records = UserPin::getUserPinCountByHours(get_user()->id,get_user()->userCompany->id);
         if( count($records) ){
+            $max_number = 0;
+            foreach($records as $record){
+                if($record->total > $max_number) {
+                    $max_number = $record->total;
+                }
+            }
             foreach($records as $record){
                 $data['hours'][] = date( 'h:i A', strtotime($record->hour . ':00'));
-                $data['total'][] = $record->total;
+                $data['total'][] = (int)(($record->total * 100)/$max_number);
             }
         }
         return response()->json($data);
@@ -84,9 +90,15 @@ class DashboardController extends Controller
         $data    = [];
         $records = UserPin::getUserPinCountByDayName(get_user()->id,get_user()->userCompany->id);
         if( count($records) ){
+            $max_number = 0;
+            foreach($records as $record){
+                if($record->total > $max_number) {
+                    $max_number = $record->total;
+                }
+            }
             foreach($records as $record){
                 $data['day_name'][] = $record->day_name;
-                $data['total'][]    = $record->total;
+                $data['total'][]    = (int)(($record->total * 100)/$max_number);
             }
         }
         return response()->json($data);

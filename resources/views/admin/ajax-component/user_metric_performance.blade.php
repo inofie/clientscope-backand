@@ -2,8 +2,9 @@
 .tableFixHead
 {
     overflow: auto;
-    height: 100px;
-    margin-top:40px;
+    height: 300px !important;
+    margin-top: 40px;
+    display: inherit;
 }
 .tableFixHead thead th
 {

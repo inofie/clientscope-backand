@@ -2,8 +2,9 @@
 .tableFixHead
 {
     overflow: auto;
-    height: 100px;
-    margin-top:40px;
+    height: 300px !important;
+    margin-top: 40px;
+    display: inherit;
 }
 .tableFixHead thead th
 {
@@ -16,7 +17,8 @@
     margin-top:40px;
 }
 </style>
-<table class="table tableFixHead">
+
+<table class="table tableFixHead"  >
     <thead>
     <tr>
         <th scope="col">KPI Group</th>
@@ -44,12 +46,16 @@
                 </td>
                 <td style="width:20%" class="ft-12">{{ round($result->target_value) }}</td>
             </tr>
+        
         @endforeach
+        
     @else
         <tr>
             <td colspan="3">No Data Found</td>
         </tr>
     @endif
+    </div>
     </tbody>
 </table>
+
 

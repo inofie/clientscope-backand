@@ -59,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2" >
                 <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">Yearly Target</p>
                 </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">Monthly Target</p>
                     </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">Weekly Target</p>
                     </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12 col-lg-6  col-xl-3 mb-3">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll-1">
                     <p class="text-uppercase ft-14 font-weight-bold">sales leaderboard</p>
                     </div>
@@ -102,7 +102,7 @@
                             Best Knock Time
                         </h5>
                         <div id="knock_time_section" class="chart filter-box2 collapse show">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="myChart" style="height: 500px"></canvas>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6">
@@ -110,7 +110,7 @@
                             Best Knock Day
                         </h5>
                         <div class="chart filter-box2 collapse show">
-                            <canvas id="myChart2"></canvas>
+                            <canvas id="myChart2" style="height: 500px"></canvas>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
         </form>
         <div id="performance_section" class="row collapse show">
             <div class="col-md-12 col-xl-6 mb-3" id="kpi_group_datatable_section">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll">
                     <p class="font-18 font-weight-bold">{{ get_user()->name }}</p>
                 </div>
@@ -195,7 +195,7 @@
                 </div>
             </div>
             <div class="col-md-12 col-xl-6 mb-3" id="metric_data_table_section">
-                <div class="filter-box2" style="height:380px;overflow-y: auto;">
+                <div class="filter-box2">
                 <div class="requires-no-scroll">
                     <p class="font-18 font-weight-bold">{{ get_user()->name }}</p>
                 </div>

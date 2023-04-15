@@ -31,16 +31,20 @@ function getLocation() {
     }
 }
 //search function for territory name
-// $('#territories_search').change(function(){
-//     let territories_search = $(this).val();
-//     ajax_request( base_url + '/admin/territoryname/get','GET',{territories_search:territories_search})
-//       .then( function(territories){
-//           if( territories.length > 0 ){
-//             $('#territory_id').html(territories);
-//           } else {
-//             alert('No territory found');
-//           }
-//       })
+$('#territories_search').change(function(){
+    let territories_search = $(this).val();
+    ajax_request( base_url + '/admin/territoryname/get','GET',{territories_search:territories_search})
+      .then( function(html){
+        //alert(response);
+          if(html){
+            $('#territorydata').html(html);
+          } else {
+            $('.territory_list').css("display", "none");
+          }
+      })
+})
+// $('#search_territories')(function(){
+
 // })
 //date filter
 $('.date_filter').change(function (e) {
@@ -65,11 +69,13 @@ $('.clear_filter').click(function () {
 //add territory
 $(".add_territory").click(function (e) {
     $('.territory_list').css("display", "none");
+    $('#territorydata').css("display", "none");
     $(".territory_form").css("display", "flex");
 })
 //territory close
 $('.territory-close').click(function (e) {
     $('.territory_list').css("display", "block");
+    $('#territorydata').css("display", "none");
     $(".territory_form").css("display", "none");
     $(".edit_territory_form").css("display", "none");
     location.reload(true);
@@ -296,7 +302,6 @@ $(document).on('click', '.edit_territory', function (e) {
     }
 
     var record = $(this).data('record');
-
     var LatLng = JSON.parse(record.geofence_detail);
     LatLng = { lat: LatLng[0].latitude, lng: LatLng[0].longitude }
 
@@ -304,11 +309,10 @@ $(document).on('click', '.edit_territory', function (e) {
     map.setZoom(13);
 
     var update_form = $('#update_territory_form');
-
     update_form.find('#favcolor').val(record.color);
     update_form.find('#universe').val(record.universe);
     update_form.find('#territory_title').val(record.title);
-
+    
     update_form.find('[name="assignee_user_id[]"] option').each(function () {
         if (record.assignee_user.length > 0) {
             var option = $(this);
@@ -320,14 +324,16 @@ $(document).on('click', '.edit_territory', function (e) {
             }
         }
     })
+   // alert(update_form);
     update_form.find('[name="geofence_detail"]').val(record.geofence_detail);
     update_form.find('[name="territory_id"]').val(record.id);
     update_form.find('[name="center_point"]').val(record.center_point);
-
+    // alert(update_form);
     $('.territory_user_id').select2();
 
     $(".edit_territory_form").css("display", "flex");
     $('.territory_list').css("display", "none");
+    $('#territorydata').css("display", "none");
 
     //enable drawing manager tool
     drawingManager = new google.maps.drawing.DrawingManager({
