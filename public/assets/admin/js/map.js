@@ -314,7 +314,8 @@ $(document).on('click', '.edit_territory', function (e) {
     update_form.find('#territory_title').val(record.title);
     
     update_form.find('[name="assignee_user_id[]"] option').each(function () {
-        if (record.assignee_user.length > 0) {
+        // alert(record.assignee_user);
+        if (record.assignee_user) {
             var option = $(this);
             var assignee_user_id = $(this).val();
             for (var i in record.assignee_user) {
