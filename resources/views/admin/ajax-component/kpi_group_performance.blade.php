@@ -3,7 +3,7 @@
 {
     overflow: auto;
     height: 300px !important;
-    margin-top: 40px;
+    margin-top: 10px !important;
     display: inherit;
 }
 .tableFixHead thead th

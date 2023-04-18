@@ -1,15 +1,9 @@
 <style>
-    .requires-no-scroll{
-    position: fixed;
-    width: 100%;
-    height: 75px;
-    background-color:white;
-}
 .tableFixHead
 {
     overflow: auto;
     height: 300px !important;
-    margin-top: 40px;
+    margin-top: 10px !important;
     display: inherit;
 }
 .tableFixHead thead th
@@ -17,6 +11,9 @@
     position: sticky;
     top: 0; z-index: 1;
     background-color:white;
+}
+table.table.tableFixHead thead tr th {
+    border-top: none;
 }
 .tableFixHead tbody
 {

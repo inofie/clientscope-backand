@@ -8,14 +8,7 @@
 .select2-container--default.select2-container--focus .select2-selection--multiple {
     background: #fff;
 }
-.requires-no-scroll{
-    position:absolute;
-    top: 1px;  
-}
-.requires-no-scroll-1{
-    position:absolute;
-    top: 3px;  
-}
+
 
 </style>
 <div class="wrapper d-flex align-items-stretch">
