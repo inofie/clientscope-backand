@@ -39,6 +39,7 @@ class MapController extends Controller
         }else{
             $this->_data['user_pin'] = [];
         }
+        //dd($this->getTerritory($request));
         $this->_data['companyUsers']    = $this->getCompanyUsers($user_company_id);
         $this->_data['companyStatuses'] = $this->getCompanyStatuses();
         $this->_data['territories']     = $this->getTerritory($request);
@@ -91,9 +92,14 @@ class MapController extends Controller
             $user_company_id = $user->userCompany->id;
         }
         $territories = \DB::table('territory AS t')
-                            ->where('t.title',$request->territories_search)->get();
-        $totalcount = $territories->count();
-        $this->_data['companyUsers']    = $this->getCompanyUsers($user_company_id);
+                            ->select('t.*')
+                            ->join('territory_company_maping AS tcm','tcm.territory_id','=','t.id')
+                            ->where('t.title',$request->territories_search)
+                            ->where('tcm.company_user_id',$user_company_id)
+                            ->groupBy('t.id')
+                            ->get();
+                           
+        $totalcount = count($territories);
         $html = view('admin.map.territorydata',$this->_data,compact('territories','totalcount'))->render();
      
         return $html;

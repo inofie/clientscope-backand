@@ -123,6 +123,7 @@ function MyChart(id, color, chart_title, label, data)
         // Configuration options
         options: {
             maintainAspectRatio: false,
+            events: ['mousemove', 'mouseout', 'touchstart', 'touchmove'],
             layout: {
                 padding: 20,
             },
