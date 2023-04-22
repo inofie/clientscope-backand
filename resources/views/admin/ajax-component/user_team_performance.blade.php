@@ -48,7 +48,7 @@ table.table.tableFixHead thead tr th {
                             @endphp
                             <tr>
                                 <td colspan="2">
-                                <img class="pr-2" src="{{ URL::to('assets/images/icon-'.basename($territory_data->image_url)) }}" alt="{{ get_user()->name }}">
+                                {{-- <img class="pr-2" src="{{ URL::to('assets/images/icon-'.basename($territory_data->image_url)) }}" alt="{{ get_user()->name }}"> --}}
                                   <!-- <span class="fa fa-map-marker pr-2"></span> -->
                                   <span>{{ $team_data->kpi_group }}</span>
                                 </td>
@@ -78,7 +78,7 @@ table.table.tableFixHead thead tr th {
                         </tr>
                         </thead>
                         <tbody>
-                        @if( count($results['matric_chart']) )
+                        @if(isset($results['matric_chart']) && count($results['matric_chart']) )
                             @foreach( $results['matric_chart'] as $metric )
                                 <tr>
                                     <td colspan="2">
@@ -175,7 +175,7 @@ table.table.tableFixHead thead tr th {
                         </tr>
                         </thead>
                         <tbody>
-                        @if( count($results['matric_chart']) )
+                        @if(isset($results['matric_chart']) &&  count($results['matric_chart']) )
                             @foreach( $results['matric_chart'] as $metric )
                                 <tr>
                                     <td>

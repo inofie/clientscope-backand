@@ -534,6 +534,7 @@ class UserPin extends Model
                     ->join('kpi_groups AS kg','kg.id','=','upskg.kpi_group_id')
                     ->join('user_team AS ut','ut.user_id','=','u.id')
                     ->join('team AS t','t.id','=','ut.team_id')
+                    ->join('territory AS te','te.creator_user_id','=','ucm.company_user_id')
                     ->join('company_kpi_target_sale AS ckts','ckts.user_company_id','=','ucm.company_user_id')
                     ->where('ucm.company_user_id',$company_user_id);
 
@@ -544,7 +545,7 @@ class UserPin extends Model
         }                    
         if( !empty($params['territory']) ){
             $territory = $params['territory'];        
-            $query->whereIn('t.title',$territory);
+            $query->whereIn('te.title',$territory);
         }
         $query = $query->groupBy(\DB::raw('t.id, kg.id'))
                         ->orderBy('total','desc')
@@ -577,6 +578,7 @@ class UserPin extends Model
                         ->join('users AS u','u.id','=','upuh.user_id')
                         ->join('user_company_mapping AS ucm','ucm.employee_user_id','=','u.id')
                         ->join('user_pin_status AS ups','ups.id','=','upuh.user_pin_status_id')
+                        ->join('territory AS te','te.creator_user_id','=','ucm.company_user_id')
                         ->join('metrices AS m','m.id','=','ups.metric_id')
                         ->join('user_metric_target AS umt',function($join){
                             $join->on('umt.user_id','=','u.id');
@@ -592,7 +594,7 @@ class UserPin extends Model
         }                    
         if( !empty($params['territory']) ){
             $territory = $params['territory'];        
-            $query->whereIn('t.title',$territory);
+            $query->whereIn('te.title',$territory);
         }
         $query = $query->groupBy(\DB::raw('t.id, m.id'))
                         ->orderBy('total','desc')
