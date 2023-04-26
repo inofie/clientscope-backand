@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\UserPin;
 use App\Models\Territory;
+use App\Models\User;
+use App\Models\TerritoryCompanyMapping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -91,16 +93,14 @@ class MapController extends Controller
         }else{
             $user_company_id = $user->userCompany->id;
         }
-        $territories = \DB::table('territory AS t')
-                            ->select('t.*')
-                            ->join('territory_company_maping AS tcm','tcm.territory_id','=','t.id')
-                            ->where('t.title',$request->territories_search)
-                            ->where('tcm.company_user_id',$user_company_id)
-                            ->groupBy('t.id')
-                            ->get();
-                           
+        
+        $territories = Territory::with('assigneeUser')
+                            ->where('title',$request->territories_search)
+                            ->groupBy('id')
+                            ->get();   
+                   
         $totalcount = count($territories);
-        $html = view('admin.map.territorydata',$this->_data,compact('territories','totalcount'))->render();
+        $html = view('admin.map.territorydata',compact('territories','totalcount'))->render();
      
         return $html;
     }
