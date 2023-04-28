@@ -93,12 +93,17 @@ class MapController extends Controller
         }else{
             $user_company_id = $user->userCompany->id;
         }
-        
+        if($request->territories_search != null){
         $territories = Territory::with('assigneeUser')
                             ->where('title',$request->territories_search)
                             ->groupBy('id')
                             ->get();   
-                   
+        }
+        else{
+        $territories = Territory::with('assigneeUser')
+                            ->groupBy('id')
+                            ->get(); 
+        }    
         $totalcount = count($territories);
         $html = view('admin.map.territorydata',compact('territories','totalcount'))->render();
      
